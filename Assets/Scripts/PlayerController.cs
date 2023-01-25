@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rBody;
     private GroundSensor sensor; 
     float horizontal;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
         playerHealth = 10;
         Debug.Log(texto);
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,15 +37,23 @@ public class PlayerController : MonoBehaviour
         if(horizontal < 0)
         {
             spriteRenderer.flipX = true;
+            anim.SetBool("IsRunning", true);
         }
         else if(horizontal > 0)
         {
             spriteRenderer.flipX = false;
+            anim.SetBool("IsRunning", true);
+        }
+        else
+        {
+            anim.SetBool("IsRunning", false);
+
         }
 
         if(Input.GetButtonDown("Jump") && sensor.isGrounded)
         {
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            anim.SetBool("IsJumping", true);
         }
     }
 }
