@@ -23,19 +23,23 @@ public class Camara : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //posicion deseada camara
-        Vector3 desiredPosition = target.position + offset;
+        if(target !=null)
+        {
+            //posicion deseada camara
+            Vector3 desiredPosition = target.position + offset;
 
-        //limitamos posicion x de la camara
-        float clampX = Mathf.Clamp(desiredPosition.x, limitX.x , limitX.y);
-        //limitamos la posicion y de la camara
-        float clampY = Mathf.Clamp(desiredPosition.y, limitY.x , limitY.y);
+            //limitamos posicion x de la camara
+            float clampX = Mathf.Clamp(desiredPosition.x, limitX.x , limitX.y);
+            //limitamos la posicion y de la camara
+            float clampY = Mathf.Clamp(desiredPosition.y, limitY.x , limitY.y);
 
-        //posicion limitada X e Y
-        Vector3 clampedPosition = new Vector3(clampX, clampY, desiredPosition.z);
+            //posicion limitada X e Y
+            Vector3 clampedPosition = new Vector3(clampX, clampY, desiredPosition.z);
 
-        Vector3 lerpedPosition = Vector3.Lerp(transform.position, clampedPosition, interpolationRatio);
+            Vector3 lerpedPosition = Vector3.Lerp(transform.position, clampedPosition, interpolationRatio);
 
-        transform.position = lerpedPosition;
+            transform.position = lerpedPosition;
+        }
+        
     }
 }
