@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - DeadZone
+  - ColisionGoomba
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - UI
   - Enemies
   - Power-Ups
-  - 
+  - ColisionGoomba
   - 
   - 
   - 
