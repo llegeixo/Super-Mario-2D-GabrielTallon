@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private GroundSensor sensor; 
     float horizontal;
     public Animator anim;
+    Coin coin;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rBody = GetComponent<Rigidbody2D>();
         sensor= GameObject.Find("GroundSensor").GetComponent<GroundSensor>();
+        coin = GameObject.Find("Coin").GetComponent<Coin>();
 
         playerHealth = 10;
         Debug.Log(texto);
@@ -60,5 +62,15 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() 
     {
         rBody.velocity = new Vector2(horizontal * playerSpeed, rBody.velocity.y);    
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameobject.tag == "CollisionCoin")
+        (
+            Coin coin = collision.gameObject.GetComponent<Coin>(); 
+            coin.Pick();
+        
+        )
     }
 }
