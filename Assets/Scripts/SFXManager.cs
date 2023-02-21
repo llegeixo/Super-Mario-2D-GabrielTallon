@@ -29,4 +29,9 @@ public class SFXManager : MonoBehaviour
     {
         source.PlayOneShot(coinpicked);
     }
+
+    public void FlagRaised()
+    {
+        source.PlayOneShot(flagraised);
+    }
 }
