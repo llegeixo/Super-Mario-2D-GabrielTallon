@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Pick()
+    public void Pick()
     {
         anim.SetBool("CoinFlip", false);
         boxCollider.enabled = false;

@@ -7,19 +7,21 @@ public class Flag : MonoBehaviour
 
     BoxCollider2D boxCollider;
     SFXManager sfxManager;
+    SoundManager soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
-    void Pick()
+    public void Pick()
     {
-         boxCollider.enabled = false;
-        Destroy(this.gameObject);
+        boxCollider.enabled = false;
         sfxManager.FlagRaised();
+        soundManager.StopBGM();
     }
 }

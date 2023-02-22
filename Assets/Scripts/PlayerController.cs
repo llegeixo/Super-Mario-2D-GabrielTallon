@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     private GroundSensor sensor; 
     float horizontal;
     public Animator anim;
-    Coin coin;
+    public Coin coin;
+    public Flag flag;
 
     // Start is called before the first frame update
     void Start()
@@ -66,11 +67,21 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameobject.tag == "CollisionCoin")
+        if (collision.gameObject.tag == "CollisionCoin")
         {
             Coin coin = collision.gameObject.GetComponent<Coin>(); 
             coin.Pick();
         
         }
+
+         if (collision.gameObject.tag == "FlagRaising")
+        {
+            Flag flag = collision.gameObject.GetComponent<Flag>(); 
+            flag.Pick();
+        
+        }
+    
     }
+
+    
 }
