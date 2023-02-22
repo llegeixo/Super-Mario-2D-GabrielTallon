@@ -11,7 +11,7 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
     }
