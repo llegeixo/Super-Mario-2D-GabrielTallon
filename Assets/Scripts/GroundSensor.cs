@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GroundSensor : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class GroundSensor : MonoBehaviour
 
    SFXManager sfxManager;
    SoundManager soundManager;
+   MenuManager menuManager;
    
    void Awake()
    {
       controller = GetComponentInParent<PlayerController>();
       sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
       soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+      menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
    
    }
    void OnTriggerEnter2D(Collider2D other) 
@@ -40,6 +43,7 @@ public class GroundSensor : MonoBehaviour
 
                soundManager.StopBGM();
                sfxManager.MarioDeath();
+               SceneManager.LoadScene(2);
         }
         
    }

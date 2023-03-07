@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rBody;
     SFXManager sfxManager;
     SoundManager soundManager;
+    MenuManager menuManager;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class Enemy : MonoBehaviour
 
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
             sfxManager.MarioDeath();
             soundManager.StopBGM();
+            SceneManager.LoadScene(2);
         }
 
         if(collision.gameObject.tag == "ColisionGoomba")

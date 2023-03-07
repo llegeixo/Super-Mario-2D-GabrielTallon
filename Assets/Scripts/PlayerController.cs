@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public Coin coin;
     public Flag flag;
+    public Text coinText;
+    int contCoin;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log(texto);
 
         anim = GetComponent<Animator>();
+
+        contCoin = 0;
     }
 
     // Update is called once per frame
@@ -71,6 +76,9 @@ public class PlayerController : MonoBehaviour
         {
             Coin coin = collision.gameObject.GetComponent<Coin>(); 
             coin.Pick();
+            contCoin++;
+            coinText.text = "Coins:" + contCoin;
+            Debug.Log(contCoin);
         
         }
 
