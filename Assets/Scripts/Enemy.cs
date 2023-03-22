@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     SFXManager sfxManager;
     SoundManager soundManager;
     MenuManager menuManager;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,8 @@ public class Enemy : MonoBehaviour
 
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-        menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
+        //menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,8 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
             sfxManager.MarioDeath();
             soundManager.StopBGM();
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
+            gameManager.GameOver();
         }
 
         if(collision.gameObject.tag == "ColisionGoomba")

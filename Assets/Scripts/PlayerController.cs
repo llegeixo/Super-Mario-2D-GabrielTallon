@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Flag flag;
     public Text coinText;
     int contCoin;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         sensor= GameObject.Find("GroundSensor").GetComponent<GroundSensor>();
         coin = GameObject.Find("Coin").GetComponent<Coin>();
+        gameManager= GameObject.Find("GameManager").GetComponent<GameManager>();
 
         playerHealth = 10;
         Debug.Log(texto);
@@ -38,7 +40,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        if(gameManager.isGameOver == false)
+        {
+            horizontal = Input.GetAxis("Horizontal");
 
         //transform.position += new Vector3(horizontal, 0) * playerSpeed * Time.deltaTime; 
 
@@ -88,8 +92,18 @@ public class PlayerController : MonoBehaviour
             flag.Pick();
         
         }
+        }
+        
+        
     
     }
 
-    
+    void OnTriggerEnter2D(Collider2D collider)
+        {
+            if(collider.gameObject.tag == "Coin")
+            {
+                gameManager.AddCoin();
+                Destroy(collider.gameObject);
+            }
+        }
 }
