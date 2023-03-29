@@ -8,8 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public bool isGameOver;
 
+    public bool canShoot;
+    public float powerUpDuration = 5;
+    float powerUpTimer = 0;
+
     public Text coinText;
     int coins;
+
+    void update()
+    {
+        ShootPowerUp();
+    }
+
 
     public void GameOver()
     {
@@ -42,6 +52,22 @@ public class GameManager : MonoBehaviour
     {
         coins++;
         coinText.text = coins.ToString();
+    }
+
+    void ShootPowerUp()
+    {
+        if(canShoot)
+        {
+            if(powerUpTimer <= powerUpDuration)
+            {
+                powerUpTimer += Time.deltaTime;0
+            }
+            else
+            {
+                canShoot = false;
+                powerUpTimer = 0;
+            }
+        }
     }
 
 }

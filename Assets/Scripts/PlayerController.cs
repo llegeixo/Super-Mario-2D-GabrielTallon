@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public Text coinText;
     int contCoin;
     GameManager gameManager;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -44,28 +46,36 @@ public class PlayerController : MonoBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
 
-        //transform.position += new Vector3(horizontal, 0) * playerSpeed * Time.deltaTime; 
+            //transform.position += new Vector3(horizontal, 0) * playerSpeed * Time.deltaTime; 
 
-        if(horizontal < 0)
-        {
-            spriteRenderer.flipX = true;
-            anim.SetBool("IsRunning", true);
-        }
-        else if(horizontal > 0)
-        {
-            spriteRenderer.flipX = false;
-            anim.SetBool("IsRunning", true);
-        }
-        else
-        {
-            anim.SetBool("IsRunning", false);
+            if(horizontal < 0)
+            {
+                //spriteRenderer.flipX = true;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                anim.SetBool("IsRunning", true);
+            }
+            else if(horizontal > 0)
+            {
+                //spriteRenderer.flipX = false;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                anim.SetBool("IsRunning", true);
+            }
+            else
+            {
+                anim.SetBool("IsRunning", false);
 
-        }
+            }
 
-        if(Input.GetButtonDown("Jump") && sensor.isGrounded)
-        {
-            rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            anim.SetBool("IsJumping", true);
+            if(Input.GetButtonDown("Jump") && sensor.isGrounded)
+            {
+                rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                anim.SetBool("IsJumping", true);
+            }
+
+            if(Input.GetKeyDown(KeyCode.F) && gameManager.canShoot)
+            {
+                Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            }
         }
     }
 
@@ -86,16 +96,14 @@ public class PlayerController : MonoBehaviour
         
         }
 
+         
+         
          if (collision.gameObject.tag == "FlagRaising")
         {
             Flag flag = collision.gameObject.GetComponent<Flag>(); 
             flag.Pick();
         
-        }
-        }
-        
-        
-    
+        }      
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -103,6 +111,12 @@ public class PlayerController : MonoBehaviour
             if(collider.gameObject.tag == "Coin")
             {
                 gameManager.AddCoin();
+                Destroy(collider.gameObject);
+            }
+
+            if(collider.gameObject.tag == "PowerUp")
+            {
+                gameManager.canShoot = true;
                 Destroy(collider.gameObject);
             }
         }

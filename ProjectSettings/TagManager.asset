@@ -8,6 +8,8 @@ TagManager:
   - ColisionGoomba
   - CollisionCoin
   - FlagRaising
+  - Bullet
+  - PowerUp
   layers:
   - Default
   - TransparentFX

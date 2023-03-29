@@ -10,7 +10,6 @@ public class GroundSensor : MonoBehaviour
 
    SFXManager sfxManager;
    SoundManager soundManager;
-   MenuManager menuManager;
    GameManager gameManager;
    
    void Awake()
@@ -18,7 +17,6 @@ public class GroundSensor : MonoBehaviour
       controller = GetComponentInParent<PlayerController>();
       sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
       soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-      menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
       gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
    
    }
