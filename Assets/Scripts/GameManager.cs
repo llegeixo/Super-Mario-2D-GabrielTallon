@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         {
             if(powerUpTimer <= powerUpDuration)
             {
-                powerUpTimer += Time.deltaTime;0
+                powerUpTimer += Time.deltaTime;
             }
             else
             {
