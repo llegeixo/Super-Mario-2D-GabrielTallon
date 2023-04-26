@@ -21780,7 +21780,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &664800788
 GameObject:
   m_ObjectHideFlags: 0
@@ -24407,6 +24407,7 @@ MonoBehaviour:
   canShoot: 0
   powerUpDuration: 5
   coinText: {fileID: 0}
+  enemiesInScreen: []
 --- !u!4 &727705869
 Transform:
   m_ObjectHideFlags: 0
@@ -68311,6 +68312,10 @@ PrefabInstance:
     - target: {fileID: 2165550399976480597, guid: c4af0b8d0c2fa2e4f8de9fb88354d48e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165550399976480598, guid: c4af0b8d0c2fa2e4f8de9fb88354d48e, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2165550399976480602, guid: c4af0b8d0c2fa2e4f8de9fb88354d48e, type: 3}
       propertyPath: m_Name

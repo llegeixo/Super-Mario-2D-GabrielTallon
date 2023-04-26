@@ -15,9 +15,16 @@ public class GameManager : MonoBehaviour
     public Text coinText;
     int coins;
 
-    void update()
+    public List<GameObject> enemiesInScreen = new List<GameObject>();
+
+    void Update()
     {
         ShootPowerUp();
+
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            KillAllEnemies();
+        }
     }
 
 
@@ -67,6 +74,14 @@ public class GameManager : MonoBehaviour
                 canShoot = false;
                 powerUpTimer = 0;
             }
+        }
+    }
+
+    void KillAllEnemies()
+    {
+        for (int i =0; i < enemiesInScreen.Count; i++)
+        {
+            Destroy(enemiesInScreen[i]);
         }
     }
 
