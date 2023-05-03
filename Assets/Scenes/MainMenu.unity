@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93378898}
   - component: {fileID: 93378897}
+  - component: {fileID: 93378899}
   m_Layer: 0
   m_Name: SFXManager
   m_TagString: Untagged
@@ -251,6 +252,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93378899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93378896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb1667ca618e92418487f7a20ac7079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goombaDeath: {fileID: 8300000, guid: 6cd53c7247b55c442bb44235bed664f0, type: 3}
+  marioDeath: {fileID: 8300000, guid: 3f25b5cde8a5c1541b3d8582bba76d79, type: 3}
+  coinpicked: {fileID: 8300000, guid: c74469d65d6e26e41ab5e15fa219b55f, type: 3}
+  flagraised: {fileID: 8300000, guid: a753f14c1d27601478165b9b8d5f5391, type: 3}
 --- !u!1 &125676311
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +305,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &135686091
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.948133
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28400642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.38665345
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615488, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611850179182615490, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 257c9db7d065ec84db03c2a987a2797b, type: 3}
 --- !u!1 &193319174
 GameObject:
   m_ObjectHideFlags: 0
